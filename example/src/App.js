@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import PullToRefresh from "pull-to-refresh-react";
+import PullToRefresh from "./PullToRefresh";
 
 export default class App extends Component {
   onRefresh() {
@@ -11,19 +11,36 @@ export default class App extends Component {
     });
   }
 
+  test() {
+    alert("click");
+  }
+
   render() {
     return (
-      <div>
-        <PullToRefresh options={{ height: 60 }} onRefresh={this.onRefresh}>
-          <div
-            style={{
-              height: "500px",
-              width: "100%",
-              backgroundColor: "black"
-            }}
-          ></div>
-        </PullToRefresh>
-      </div>
+      <PullToRefresh
+        options={{ pullDownHeight: 100 }}
+        onRefresh={this.onRefresh}
+      >
+        <div
+          style={{
+            height: "500px",
+            width: "100%",
+            backgroundColor: "blur",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <div>Nguyen Manh Cuong - CuongStf</div>
+          <button
+            style={{ border: "1px solid black" }}
+            onClick={() => this.test()}
+          >
+            Disabled Click when refreshing
+          </button>
+        </div>
+      </PullToRefresh>
     );
   }
 }

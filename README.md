@@ -35,7 +35,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <PullToRefresh options={{ height: 60 }} onRefresh={this.onRefresh}>
+      <PullToRefresh options={{ pullDownHeight: 60 }} onRefresh={this.onRefresh}>
         <div
           style={{
             height: "500px",
@@ -58,7 +58,7 @@ export default class App extends Component {
 | textStart    | `string (optional)`      | `Start`       | Text display when start touch |
 | textReady           | `string (optional)`                            | `Ready`    | Text display when ready onRefresh |
 | textRefresh             | `string (optional)`                     | `Refresh`       | Text display when refreshing |
-| options             | `object (optional)`                     | `{ height: 60 }`       | { height: height of Pull Down }  |
+| options             | `object (optional)`                     | `{ pullDownHeight: 60 }`       | { pullDownHeight: height of Pull Down }  |
 
 
 ## Resource
