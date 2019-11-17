@@ -30,19 +30,22 @@
   width: 20px;
   margin-top: 10px;
   margin-left: -20px;
-  background: url(./down-arrow.png) no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 20px 20px;
 }
 
 .pull-down-content--icon.pull-down-refresh {
-  background: url(./refresh-icon.png) no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 20px 20px;
   animation: rotate 2s infinite;
   animation-timing-function: linear;
 }
 
 .pull-down-content--icon.pull-down-error {
-  background: url(./error-icon.png) no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 20px 20px;
 }
 

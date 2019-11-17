@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import PullToRefresh from "./PullToRefresh";
+import PullToRefresh from "pull-to-refresh-react";
 
 export default class App extends Component {
   onRefresh() {

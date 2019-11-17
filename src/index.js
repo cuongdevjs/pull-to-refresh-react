@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
+import errorIcon from './error-icon.png';
+import downArrow from './down-arrow.png';
+import refreshIcon from './refresh-icon.png';
+
 export default class ExampleComponent extends Component {
   static propTypes = {
     options: PropTypes.object,
@@ -200,6 +204,7 @@ export default class ExampleComponent extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.state.status !== prevState.status) {
+      let icon = document.querySelector('.pull-down-content--icon')
       this.setState({
         label: this.listLabel[this.state.status + 1],
         iconClass:
@@ -209,6 +214,13 @@ export default class ExampleComponent extends Component {
               ? 'pull-down-refresh'
               : ''
       })
+      if (this.state.status === this.statusError) {
+        icon.style.backgroundImage = 'url(' + errorIcon + ')';
+      } else if (this.state.status === this.statusRefresh) {
+        icon.style.backgroundImage = 'url(' + refreshIcon + ')';
+      } else {
+        icon.style.backgroundImage = 'url(' + downArrow + ')';
+      }
     }
   }
 
