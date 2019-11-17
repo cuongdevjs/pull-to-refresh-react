@@ -24,7 +24,7 @@ import React, { Component } from 'react'
 
 import PullToRefresh from "pull-to-refresh-react";
 
-export default class App extends Component {
+class App extends Component {
   onRefresh() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -33,16 +33,35 @@ export default class App extends Component {
     });
   }
 
+  test() {
+    alert("click");
+  }
+
   render() {
     return (
-      <PullToRefresh options={{ pullDownHeight: 60 }} onRefresh={this.onRefresh}>
+      <PullToRefresh
+        options={{ pullDownHeight: 100 }}
+        onRefresh={this.onRefresh}
+      >
         <div
           style={{
             height: "500px",
             width: "100%",
-            backgroundColor: "black"
+            backgroundColor: "blur",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center"
           }}
-        ></div>
+        >
+          <div>Nguyen Manh Cuong - CuongStf</div>
+          <button
+            style={{ border: "1px solid black" }}
+            onClick={() => this.test()}
+          >
+            Event Disabled when refreshing
+          </button>
+        </div>
       </PullToRefresh>
     );
   }
