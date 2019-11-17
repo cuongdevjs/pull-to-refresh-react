@@ -1,5 +1,64 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.pull-down-container {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+.pull-down-header {
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  position: fixed;
+  background-color: rgb(44, 49, 51);
+  top: 0;
+  z-index: 11;
+}
+.pull-down-content {
+  position: absolute;
+  max-width: 90%;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  color: #d5d5d5;
+  text-align: center;
+  border-left: 20px solid transparent;
+  font-size: 14px;
+}
+.pull-down-content--icon {
+  float: left;
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
+  margin-left: -20px;
+  background: url(./down-arrow.png) no-repeat center center;
+  background-size: 20px 20px;
+}
+
+.pull-down-content--icon.pull-down-refresh {
+  background: url(./refresh-icon.png) no-repeat center center;
+  background-size: 20px 20px;
+  animation: rotate 2s infinite;
+  animation-timing-function: linear;
+}
+
+.pull-down-content--icon.pull-down-error {
+  background: url(./error-icon.png) no-repeat center center;
+  background-size: 20px 20px;
+}
+
+.pull-down-content--label {
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

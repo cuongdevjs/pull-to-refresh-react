@@ -1,13 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ExampleComponent from 'react-pull-to-refresh'
+import PullToRefresh from "./PullToRefresh";
 
 export default class App extends Component {
-  render () {
+  onRefresh() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 5000);
+    });
+  }
+
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <PullToRefresh options={{ height: 60 }} onRefresh={this.onRefresh}>
+          <div
+            style={{
+              height: "500px",
+              width: "100%",
+              backgroundColor: "black"
+            }}
+          ></div>
+        </PullToRefresh>
       </div>
-    )
+    );
   }
 }
