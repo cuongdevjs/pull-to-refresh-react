@@ -10,10 +10,12 @@
 npm i pull-to-refresh-react
 ```
 
-##### [Pull To Refresh NPM](https://www.npmjs.com/package/pull-to-refresh-react)
+#### [Link Demo](https://codesandbox.io/s/zen-dewdney-6urjb) (`Turn on mobile mode`)
 
 
-##### [Pull To Refresh Github](https://github.com/CuongStf/pull-to-refresh-react)
+
+#### [NPM](https://www.npmjs.com/package/pull-to-refresh-react)
+#### [Github](https://github.com/CuongStf/pull-to-refresh-react)
 
 ## Usage
 
@@ -58,6 +60,9 @@ export default class App extends Component {
 | textRefresh             | `string (optional)`                     | `Refresh`       | Text display when refreshing |
 | options             | `object (optional)`                     | `{ height: 60 }`       | { height: height of Pull Down }  |
 
+
+## Resource
+Inspired from [vue-pull-refresh](https://github.com/lakb248/vue-pull-refresh)
 
 
 ## License
