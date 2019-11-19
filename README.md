@@ -2,7 +2,7 @@
 
 > Pull To Refresh for Progressive Web Application (only Mobile) React JS
 
-[![npm version](https://badge.fury.io/js/pull-to-refresh-react.svg)](https://badge.fury.io/js/pull-to-refresh-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm version](https://badge.fury.io/js/pull-to-refresh-react.svg)](https://badge.fury.io/js/pull-to-refresh-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Greenkeeper badge](https://badges.greenkeeper.io/CuongStf/pull-to-refresh-react.svg)](https://greenkeeper.io/)
 
 ## Install
 
