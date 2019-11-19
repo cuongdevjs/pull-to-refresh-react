@@ -1,4 +1,4 @@
-# react-pull-to-refresh
+# pull-to-refresh-react
 
 > Pull To Refresh for Progressive Web Application (only Mobile) React JS
 
