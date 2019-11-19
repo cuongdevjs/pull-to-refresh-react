@@ -23,7 +23,7 @@ export default class App extends Component {
       >
         <div
           style={{
-            height: "500px",
+            height: "1000px",
             width: "100%",
             backgroundColor: "blur",
             display: "flex",

@@ -78,9 +78,9 @@ export default class PullToRefresh extends Component {
           height: 0
         })
       }
-      pullDownContainer.style.overflowY = 'auto';
       pullDownLayer.style.zIndex = -1
-    };
+      pullDownContainer.style.height = '100%';
+    }
 
     let touchPosition = {
       start: 0,
@@ -101,7 +101,7 @@ export default class PullToRefresh extends Component {
         if (this.state.status !== this.statusRefresh) {
           if (this.state.isMounted) {
             this.setState({
-              canPull: e.scrollTop === 0
+              canPull: window.scrollY === 0
             })
           }
           touchPosition.start = e.touches[0].pageY
@@ -115,13 +115,17 @@ export default class PullToRefresh extends Component {
       'touchmove',
       async e => {
         if (this.state.status !== this.statusRefresh) {
-          if (this.state.canPull) return
+          if (!this.state.canPull) return
+
           let distance = e.touches[0].pageY - touchPosition.start
           distance = distance > 180 ? 180 : distance
 
-          if (distance > 0) pullDownContainer.style.overflowY = 'hidden';
+          if (distance > 0) {
+            // pullDownLayer.style.zIndex = "10";
+            pullDownContainer.style.height = '100vh';
+          }
           touchPosition.distance = distance
-          if (this.state.isMounted && distance > 10) {
+          if (this.state.isMounted) {
             this.setState({
               height: distance
             })
@@ -211,10 +215,6 @@ export default class PullToRefresh extends Component {
     pullDownHeader.addEventListener('webkitTransitionEnd', () => {
       pullDownHeader.style.transition = '';
     })
-  }
-
-  componentWillUnmount() {
-    console.log('unmount component')
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
