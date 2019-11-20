@@ -40,7 +40,7 @@ export default class PullToRefresh extends Component {
   statusReady = 1;
   statusRefresh = 2;
   listLabel = ['Error', 'Start', 'Ready', 'Refresh'];
-  animation = 'height .5s ease';
+  animation = 'all 0.2s ease';
 
   checkListLabel() {
     this.listLabel[0] = this.props.textError || this.listLabel[0]
@@ -101,7 +101,7 @@ export default class PullToRefresh extends Component {
         if (this.state.status !== this.statusRefresh) {
           if (this.state.isMounted) {
             this.setState({
-              canPull: window.scrollY === 0
+              canPull: window.pageYOffset === 0
             })
           }
           touchPosition.start = e.touches[0].pageY
@@ -114,9 +114,7 @@ export default class PullToRefresh extends Component {
     pullDownContainer.addEventListener(
       'touchmove',
       async e => {
-        if (this.state.status !== this.statusRefresh) {
-          if (!this.state.canPull) return
-
+        if (this.state.status !== this.statusRefresh && this.state.canPull) {
           let distance = e.touches[0].pageY - touchPosition.start
           distance = distance > 180 ? 180 : distance
 
@@ -146,13 +144,13 @@ export default class PullToRefresh extends Component {
             }
             icon.style.transform = 'rotate(' + distance + 'deg)';
           }
-        }
+        } else return
       },
       supportPassive ? { passive: true } : false
     )
 
     pullDownContainer.addEventListener('touchend', async () => {
-      if (this.state.status !== this.statusRefresh) {
+      if (this.state.status !== this.statusRefresh && this.state.canPull) {
         if (this.state.isMounted) {
           this.setState({
             canPull: false
@@ -205,7 +203,7 @@ export default class PullToRefresh extends Component {
         touchPosition.distance = 0
         touchPosition.start = 0
         console.log('touchEnd: ', this.state.height)
-      }
+      } else return
     })
 
     pullDownHeader.addEventListener('transitionend', () => {

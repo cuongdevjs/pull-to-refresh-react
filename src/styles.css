@@ -8,6 +8,22 @@ body {
   overflow-y: auto;
   position :relative;
 }
+
+
+.pull-down-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+.pull-down-container::-webkit-scrollbar {
+  width:3px;
+}
+.pull-down-container::-webkit-scrollbar * {
+  background:transparent;
+}
+.pull-down-container::-webkit-scrollbar-thumb {
+  background:rgba(255,0,0,0.1) !important;
+}
+
 .pull-down-header {
   width: 100%;
   height: 0px;
