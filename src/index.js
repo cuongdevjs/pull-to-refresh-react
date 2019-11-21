@@ -129,7 +129,7 @@ export default class PullToRefresh extends Component {
             pullDownContainer.style.height = '100vh';
           }
           touchPosition.distance = distance
-          if (this.state.isMounted) {
+          if (this.state.isMounted && distance > 30) {
             this.setState({
               height: distance
             })
