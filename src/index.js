@@ -61,9 +61,7 @@ export default class PullToRefresh extends Component {
     let pullDownHeader = this.pullDownHeader.current
     let pullDownLayer = this.pullDownLayer.current
     let icon = this.iconPullDown.current
-    let children = pullDownLayer.nextElementSibling
-      ? pullDownLayer.nextElementSibling
-      : null
+    let children = null
 
     let pullDownHeight =
       this.props.options && this.props.options.pullDownHeight
@@ -101,6 +99,13 @@ export default class PullToRefresh extends Component {
     pullDownContainer.addEventListener(
       'touchstart',
       async e => {
+        children = pullDownLayer.nextElementSibling
+          ? pullDownLayer.nextElementSibling
+          : null
+        console.log(
+          'Children is to top: ',
+          children.getBoundingClientRect().top
+        )
         if (this.state.status !== this.statusRefresh) {
           let isTop = children
             ? children.getBoundingClientRect().top === 0
