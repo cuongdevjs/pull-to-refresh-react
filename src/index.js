@@ -15,7 +15,7 @@ export default class PullToRefresh extends Component {
     textError: PropTypes.string,
     textStart: PropTypes.string,
     textReady: PropTypes.string,
-    textRefresh: PropTypes.string
+    textRefresh: PropTypes.string,
   };
 
   constructor(props) {
@@ -48,6 +48,11 @@ export default class PullToRefresh extends Component {
     this.listLabel[2] = this.props.textReady || this.listLabel[2]
     this.listLabel[3] = this.props.textRefresh || this.listLabel[3]
   }
+
+  const contentBackgroundColor =
+      this.props.options && this.props.options.contentBackgroundColor
+        ? this.props.options.contentBackgroundColor
+        : ''
 
   componentDidMount() {
     this.setState({ isMounted: true })
@@ -256,7 +261,7 @@ export default class PullToRefresh extends Component {
           style={{ height: this.state.height + 'px' }}
           ref={this.pullDownHeader}
         >
-          <div className='pull-down-content'>
+          <div className='pull-down-content' style={{ backgroundColor: contentBackgroundColor}}>
             <i
               className={'pull-down-content--icon ' + this.state.iconClass}
               ref={this.iconPullDown}
