@@ -6,6 +6,7 @@ declare module "pull-to-refresh-react" {
    */
   export interface PullToRefreshOptions {
     pullDownHeight?: number;
+    contentBackgroundColor?: string;
   }
 
   export interface PullToRefreshProps {
